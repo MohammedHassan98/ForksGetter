@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
+import firebase from "../util/firebase";
+import Datatable from "../components/DataTable";
 
-const Favourites: React.FC = () => {
-    return (
-        <div>
-            Favourites
-        </div>
-    )
+export default class Favourites extends Component {
+    state = {}
+
+    getForksFromFirebase = () => {
+        const forkRef = firebase.database().ref("FavouriteForks")
+
+    }
+    componentDidMount() {
+
+    }
+
+    render() {
+        return (
+            <div className="MainDiv">
+
+            </div>
+        )
+    }
 }
-
-export default Favourites

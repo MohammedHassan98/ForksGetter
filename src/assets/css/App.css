@@ -2,6 +2,8 @@
 @import "Search.css";
 @import "Datatable.css" ;
 @import "Pagination.css";
+@import "Favouries.css";
+
 
 html{
   width: 100%;

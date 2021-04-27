@@ -8,7 +8,7 @@ export default function Navbar() {
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/favorites"> Favorites </a>
+                    <a href="/favourites"> Favorites </a>
                 </li>
             </ul>
         </div>

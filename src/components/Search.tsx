@@ -80,7 +80,7 @@ export default class Search extends Component {
                         </form>
                     </div>
                     <h2 style={{ textAlign: "center" }}>Number Of Forks: <strong>{this.state.forks.length}</strong></h2>
-                    <DataTable forks={currentForks} />
+                    <DataTable forks={currentForks} WhichButton={"Add To Favourites"}/>
                     <Pagination
                         ForksPerPage={ForksPerPage}
                         totalForks={this.state.forks.length}
