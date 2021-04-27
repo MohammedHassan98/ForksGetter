@@ -1,0 +1,33 @@
+
+.NavBar{
+    width: 100%;
+    height: 3rem;
+    background-color:#f8f9fa;
+    margin: 0px;
+    text-align: center;
+  }
+  
+  .navItems{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+  .navItems li {
+    font-size:1.5rem;
+    display: inline;
+    margin: 1rem;
+  }
+  
+  .navItems li a:hover {
+    background-color:#0dcaf0;
+  }
+  
+  .navItems li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: #212529;
+  }
+  

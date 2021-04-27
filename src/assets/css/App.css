@@ -1,0 +1,27 @@
+@import "Navbar.css";
+@import "Search.css";
+
+body {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0%;
+  width: 100%;
+}
+
+.WelcomeSection{
+  margin-top: 2rem;
+  font-size: xx-large;
+}
+
+.normalText{
+  text-align: center;
+  padding: 10px;
+  font-size: 1.4rem;
+}
+
+.MainDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
