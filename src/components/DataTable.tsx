@@ -30,7 +30,7 @@ const DataTable: React.FC<Props> = ({ forks }) => {
             <tr key={fork.id}>
               <td>{fork.owner.login}</td>
               <td>{fork.stargazers_count}</td>
-              <td><a href={"https://github.com/" + fork.full_name} target="_blank">`https://github.com/${fork.full_name}` </a></td>
+              <td><a href={"https://github.com/" + fork.full_name} target="_blank">{"https://github.com/" + fork.full_name} </a></td>
             </tr>
           ))}
         </tbody>

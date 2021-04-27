@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Axios from "axios";
 import DataTable from "./DataTable";
+import Pagination from "./Pagination";
 
 export default class Search extends Component {
 
@@ -8,7 +9,8 @@ export default class Search extends Component {
         searchValue: '',
         forks: [],
         errorMessage: '',
-        emptyMessage: ''
+        emptyMessage: '',
+        currentPage : 1
     }
 
     handleChange = (e: any) => {
@@ -33,7 +35,7 @@ export default class Search extends Component {
             Axios.get(`https://api.github.com/repos/${owner}/${repoName}/forks`)
                 .then(res => {
                     if (res.data.length === 0) {
-                        this.setState({emptyMessage: "There is No Forks For This Repository"})
+                        this.setState({ emptyMessage: "There is No Forks For This Repository" })
                     }
                     this.setState({ forks: res.data })
                     console.log(res.data)
@@ -52,13 +54,21 @@ export default class Search extends Component {
                                 Search
                             </button>
                         </form>
-                    {this.state.errorMessage ? <span className="errorMessage"> {this.state.errorMessage} </span> : null}
+                        {this.state.errorMessage ? <span className="errorMessage"> {this.state.errorMessage} </span> : null}
                     </div>
                     {this.state.emptyMessage ? <span className="emptyMessage"> {this.state.emptyMessage} </span> : null}
                 </div>
             )
         }
         else {
+            const ForksPerPage = 8;
+            const indexOfLastFork = this.state.currentPage * ForksPerPage;
+            const indexOfFirstFork = indexOfLastFork - ForksPerPage;
+            const currentForks = this.state.forks.slice(indexOfFirstFork, indexOfLastFork);
+            const paginate = (pageNumber: number) => {
+                this.setState({currentPage: pageNumber})
+            };
+
             return (
                 <div className="MainDiv">
                     <div className="form-group">
@@ -70,7 +80,12 @@ export default class Search extends Component {
                         </form>
                     </div>
                     <h2 style={{ textAlign: "center" }}>Number Of Forks: <strong>{this.state.forks.length}</strong></h2>
-                    <DataTable forks={this.state.forks} />
+                    <DataTable forks={currentForks} />
+                    <Pagination
+                        ForksPerPage={ForksPerPage}
+                        totalForks={this.state.forks.length}
+                        paginate={paginate}
+                    />
                 </div>
             )
         }

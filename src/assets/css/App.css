@@ -1,6 +1,7 @@
 @import "Navbar.css";
 @import "Search.css";
 @import "Datatable.css" ;
+@import "Pagination.css";
 
 html{
   width: 100%;
