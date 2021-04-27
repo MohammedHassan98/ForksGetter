@@ -28,7 +28,7 @@ export default class Search extends Component {
     SeachFunc = (e: any) => {
         e.preventDefault()
         if (this.validateForm()) {
-            const text = this.state.searchValue.split("/:")
+            const text = this.state.searchValue.trim().split("/:")
             const owner: string = text[0]
             const repoName: string = text[1]
 
