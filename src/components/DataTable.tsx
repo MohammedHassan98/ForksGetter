@@ -1,87 +1,43 @@
 import React from "react";
 
-const DataTable: React.FC = () => {
+interface Fork {
+  id: number;
+  login: string;
+  full_name: string;
+  stargazers_count: number;
+  owner: {
+    login: string
+  }
+}
+
+
+interface Props {
+  forks: Fork[]
+}
+const DataTable: React.FC<Props> = ({ forks }) => {
   return (
     <div>
       <table className="repositories">
-        <tr>
-          <th>Repository Name</th>
-          <th>Repository Owner</th>
-          <th>Number Of Stars</th>
-          <th>Link To Fork</th>
-          <th>Number Of Forks</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-          <td>Some Link</td>
-          <td>65</td>
+        <thead>
+          <tr>
+            <th>Repository Owner</th>
+            <th>Number Of Stars</th>
+            <th>Link To The Forked Repository</th>
+          </tr>
+        </thead>
+        <tbody>
+          {forks.map(fork => (
+            <tr key={fork.id}>
+              <td>{fork.owner.login}</td>
+              <td>{fork.stargazers_count}</td>
+              <td><a href={"https://github.com/" + fork.full_name} target="_blank">`https://github.com/${fork.full_name}` </a></td>
+            </tr>
+          ))}
+        </tbody>
 
-        </tr>
-        <tr>
-          <td>Berglunds snabbköp</td>
-          <td>Christina Berglund</td>
-          <td>Sweden</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Ernst Handel</td>
-          <td>Roland Mendel</td>
-          <td>Austria</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Island Trading</td>
-          <td>Helen Bennett</td>
-          <td>UK</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Königlich Essen</td>
-          <td>Philip Cramer</td>
-          <td>Germany</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Laughing Bacchus Winecellars</td>
-          <td>Yoshi Tannamuri</td>
-          <td>Canada</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Magazzini Alimentari Riuniti</td>
-          <td>Giovanni Rovelli</td>
-          <td>Italy</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>North/South</td>
-          <td>Simon Crowther</td>
-          <td>UK</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
-        <tr>
-          <td>Paris spécialités</td>
-          <td>Marie Bertrand</td>
-          <td>France</td>
-          <td>Some Link</td>
-          <td>65</td>
-        </tr>
+        {/* <tfoot>
+          Here Lays Pagination
+        </tfoot> */}
       </table>
     </div>
   );

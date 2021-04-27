@@ -2,14 +2,26 @@
     width: 100%;
 }
 
-.form-control{
-    width: 60rem;
+.form-control, .errorMessage, .emptyMessage{
+    width: 65rem;
     height: 1rem;
     border: 1px solid #ececec;
     border-radius: 8px;
     padding: 1em;
     margin: 1em;
     font-size: 1.1rem;
+}
+
+.errorMessage, .emptyMessage {
+    height: .5rem;
+    background-color: #dc3545;
+    color: white;
+    text-align: center;
+}
+
+.emptyMessage {
+    background-color: #0d6efd;
+    text-align: center;
 }
 
 .SearchButton{
@@ -19,7 +31,7 @@
     font-weight: bold;
     border: none;
     border-radius: 8px;
-    width: 8rem;
+    width: 10rem;
     height: 2.8rem
 }
 

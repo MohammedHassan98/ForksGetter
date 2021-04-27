@@ -11,10 +11,10 @@ export default class MainPage extends Component {
         <div className="normalText">
           <p>
             {" "}
-            You Can type Repository Name at the form " owner /:repositoryName "
+            You Can type Repository Name at the form <strong>"owner /:repositoryName"</strong>
             then click search and we will provide Repo's full name of the
             <br />
-            repository, owner, number of stars, link to the fork repository.
+            repository owner, number of stars, link to the forked repository.
           </p>
         </div>
         <div className="SearchArea">
