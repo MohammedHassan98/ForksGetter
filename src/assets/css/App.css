@@ -1,5 +1,6 @@
 @import "Navbar.css";
 @import "Search.css";
+@import "Datatable.css" ;
 
 body {
   font-family: sans-serif;

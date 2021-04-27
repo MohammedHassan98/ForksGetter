@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Search from "../components/Search";
+import Search from "../components/Search";;
+
 export default class MainPage extends Component {
   render() {
     return (

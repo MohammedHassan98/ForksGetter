@@ -1,33 +1,33 @@
-
-.NavBar{
+.NavBar {
     width: 100%;
     height: 3rem;
-    background-color:#f8f9fa;
+    background-color: #f8f9fa;
     margin: 0px;
     text-align: center;
-  }
-  
-  .navItems{
+}
+
+.navItems {
     list-style-type: none;
     margin: 0;
     padding: 0;
-  
-  }
-  
-  .navItems li {
-    font-size:1.5rem;
+
+}
+
+.navItems li {
     display: inline;
     margin: 1rem;
-  }
-  
-  .navItems li a:hover {
-    background-color:#0dcaf0;
-  }
-  
-  .navItems li a {
+}
+
+.navItems li a:hover {
+    background-color: #b8b8b8;
+}
+
+.navItems li a {
+    height: 1.5em;
+    font-size: 1.1rem;
+    font-weight: bold;
     display: inline-block;
     padding: 10px;
     text-decoration: none;
     color: #212529;
-  }
-  
+}
