@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DataTable() {
+const DataTable: React.FC = () => {
   return (
     <div>
       <table className="repositories">
@@ -86,3 +86,5 @@ export default function DataTable() {
     </div>
   );
 }
+
+export default DataTable

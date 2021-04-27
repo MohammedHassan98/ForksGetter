@@ -5,7 +5,7 @@ export default class Search extends Component {
         return (
             <div className="form-group">
                <form>
-                   <input type="text" name="search" placeholder="Type Repo Name Here" className="form-control" />
+                   <input type="text" name="search" placeholder="Type Repo Name Here" className="form-control"/>
                    <button className="SearchButton" >
                        Search
                    </button>

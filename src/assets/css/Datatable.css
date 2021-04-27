@@ -1,7 +1,7 @@
 .repositories {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 100rem;
   }
   
   .repositories td, .repositories th {

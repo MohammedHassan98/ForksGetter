@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar() {
+const Navbar: React.FunctionComponent = () => {
     return (
         <div className="NavBar">
             <ul className="navItems">
@@ -14,3 +14,5 @@ export default function Navbar() {
         </div>
     )
 }
+
+export default Navbar
