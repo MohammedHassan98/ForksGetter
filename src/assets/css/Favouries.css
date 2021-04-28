@@ -3,3 +3,10 @@
     font-size: 1rem;
     width: 10rem;
 }
+
+.DeleteButton {
+    font-weight: normal;
+    font-size: 1rem;
+    width: 10rem;
+    background-color: #dc3545;
+}

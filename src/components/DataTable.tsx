@@ -26,7 +26,7 @@ const DataTable: React.FC<Props> = ({ forks, WhichButton }) => {
             <th>Repository Owner</th>
             <th>Number Of Stars</th>
             <th>Link To The Forked Repository</th>
-            <th>Favourite Repo</th>
+            {WhichButton === "Add To Favourites" ? <th>{WhichButton}</th>: null}
           </tr>
         </thead>
         <tbody>
@@ -37,32 +37,27 @@ const DataTable: React.FC<Props> = ({ forks, WhichButton }) => {
               <td>
                 <a href={"https://github.com/" + fork.full_name} target="_blank">{"https://github.com/" + fork.full_name}</a>
               </td>
+
+              {/* Add Fork To Favourite List In Firebase Real Time Database */}
               {WhichButton === "Add To Favourites" ?
-                <td><button id="Add" className="SearchButton addButton" onClick={function AddToFav() {
-                  const AddedFork = {
-                    id: fork.id,
-                    owner: fork.owner.login,
-                    stars: fork.stargazers_count,
-                    link: `https://github.com/${fork.full_name}`
-                  }
-
-                  const forkRef = firebase.database().ref("FavouriteForks")
-                  forkRef.push(AddedFork).then(res => {
-                    return (
-                      <div className="emptyMessage">
-                        "Repo Added Successfully"
-                      </div>
-                    )
-                  })
-
-                }}>{WhichButton}</button></td> : null}
+                <td>
+                  <button className="SearchButton addButton" onClick={function AddToFav() {
+                    const AddedFork = {
+                      id: fork.id,
+                      owner: {
+                        login: fork.owner.login
+                      },
+                      stargazers_count: fork.stargazers_count,
+                      link: `https://github.com/${fork.full_name}`
+                    }
+                    const forkRef = firebase.database().ref("FavouriteForks")
+                    forkRef.push(AddedFork)
+                  }}>{WhichButton}
+                  </button>
+                </td> : null}
             </tr>
           ))}
         </tbody>
-
-        {/* <tfoot>
-          Here Lays Pagination
-        </tfoot> */}
       </table>
     </div>
   );
