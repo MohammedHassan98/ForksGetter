@@ -24,6 +24,7 @@ const DataTable: React.FC<Props> = ({ forks, WhichButton }) => {
         <thead>
           <tr>
             <th>Repository Owner</th>
+            <th>Repository's Full Name</th>
             <th>Number Of Stars</th>
             <th>Link To The Forked Repository</th>
             {WhichButton === "Add To Favourites" ? <th>{WhichButton}</th>: null}
@@ -33,6 +34,7 @@ const DataTable: React.FC<Props> = ({ forks, WhichButton }) => {
           {forks.map(fork => (
             <tr key={fork.id}>
               <td>{fork.owner.login}</td>
+              <td>{fork.full_name}</td>
               <td>{fork.stargazers_count}</td>
               <td>
                 <a href={"https://github.com/" + fork.full_name} target="_blank">{"https://github.com/" + fork.full_name}</a>
@@ -52,6 +54,7 @@ const DataTable: React.FC<Props> = ({ forks, WhichButton }) => {
                     }
                     const forkRef = firebase.database().ref("FavouriteForks")
                     forkRef.push(AddedFork)
+                    alert("This Repo has been added successfully to favourite list")
                   }}>{WhichButton}
                   </button>
                 </td> : null}
