@@ -49,6 +49,7 @@ const DataTable: React.FC<Props> = ({ forks, WhichButton }) => {
                       owner: {
                         login: fork.owner.login
                       },
+                      full_name: fork.full_name,
                       stargazers_count: fork.stargazers_count,
                       link: `https://github.com/${fork.full_name}`
                     }
